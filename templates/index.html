@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrueForest Validator</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', path='/images/tree.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='/styles9.css') }}">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <div class='main'>
+        <header>
+            <nav class="nav collapsible">
+                <ul class="list nav__list">
+                    <li class="nav__item"><a href="#validator-container">| Validator |</a></li>
+                    <li class="nav__item"><a href="#userGuide">User Guide |</a></li>
+                    <li class="nav__item"><a href="#about">About |</a></li>
+                    <li class="nav__item"><a href="#">TBD |</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="title_container">
+            <div>
+                <h1>TrueForest</h1>
+                <h2>Validate your drone imagery</h2>
+            </div>
+        </div>
+        <div class="validator">
+            <div class="validator-container" id="validator-container" data-aos="flip-down" data-aos-offset="200">
+                <div class="centering">
+                    <div class="validator-content">
+                        <div class='coordinates'>
+                            <h4>Please enter coordinates of your drone image (decimal degrees)</h4>
+                            <form id="form_coordinates" target="coordinates_frame" action="/upload_coordinates" class="form_coordinates" name="form_coordinates" method="post" enctype="multipart/form-data">
+                                <div id="bottom_left" class='coordinate_input_container'>
+                                    <div class="long_lat_container">
+                                        <h5>Bottom left corner</h5>
+                                        <div class="longLatWrapper">
+                                            <div class="inputWrapper">
+                                                <label class="coordinate_input_label" for="bottom_left_long">long</label>
+                                                <input id="bottom_left_long" name="bottom_left_long" class='coordinate_input' type="number" step="any" min="-180" max="180" value="8.518583251666984">
+                                            </div>
+                    
+                                            <div class="inputWrapper">
+                                                <label class="coordinate_input_label" for="bottom_left_lat">lat</label>
+                                                <input id="bottom_left_lat" name="bottom_left_lat" class='coordinate_input' type="number" step="any" min="-90" max="90" value="47.385180409385235">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="top_right" class='coordinate_input_container'>
+                                    <div class="long_lat_container">
+                                        <h5>Top right corner</h5>
+                                        <div class="longLatWrapper">
+                                            <div class="inputWrapper">
+                                                <label class="coordinate_input_label" for="top_right_long">long</label>
+                                                <input id="top_right_long" name="top_right_long" class='coordinate_input' type="number" step="any" min="-180" max="180" value="8.531929144264353">
+                                            </div>
+                                            <div class="inputWrapper">
+                                                <label class="coordinate_input_label" for="top_right_lat">lat</label>
+                                                <input id="top_right_lat" name="top_right_lat" class='coordinate_input' type="number" step="any" min="-90" max="90" value="47.39107957306875">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <iframe name="coordinates_frame" style="display:none;"></iframe>
+                        <form id="form_drone_img" target="drone_frame" class="form_drone_img" action="/upload_drone_img" method="post" enctype="multipart/form-data">
+                            <input type="file" id="fileUpload" name="drone_img" />
+                        </form>
+                        <iframe name="drone_frame" style="display:none;"></iframe>
+                        <div class='DD_Sat'>
+                            <div id="drop_zone" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);" class='DD'>
+                                <p>Drag drone image to this Drop Zone ...</p>
+                            </div>
+                            <div id="sat_img" class='Sat'>
+                                <p>Here corresponding satellite image will be shown...</p>
+                            </div>
+                        </div>
+                        <div id="btn_container" class="buttons-1">
+                            <button id="clr_btn" class="btn" id="clear" onclick="clearDD(event);">Clear</button>
+                            <button id="sat_btn" class="btn" id="get_sat" onclick="submitCoordinatesForm();">Get Satellite image</button>
+                            <button id="val_btn" class="btn validate" onclick="validate()" disabled>Validate</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div id="userGuide" class="userGuide">
+        <div id="instructions" data-aos="fade-left" data-aos-offset="200">
+            <figure>
+                <figcaption>User Guide</figcaption>
+                <ol>
+                    <li>Drag drone image in designated area</li>
+                    <li>Enter coordinates. Please provide them in the decimal convention.</li>
+                    <li>Get satellite image by pressing the button. This may take a while.</li>
+                    <li>Now you are able to validate your drone image. You will find the result next to the validation button.</li>
+                    <li>In case you want try another image, please press 'Clear' and start the process anew.</li>
+                </ol>
+            </figure>
+        </div>
+    </div>
+    <div id="about" class="about">
+        <div id="information" data-aos="fade-right" data-aos-offset="200">
+            <figure>
+                <figcaption>About TrueForest</figcaption>
+                <ol>
+                    <li>DS3Lab ETHZ</li>
+                    <li>BlaBlaBla</li>
+                    <li>BlaBlaBla</li>
+                </ol>
+            </figure>
+        </div>
+    </div>
+    <script type="text/javascript" src="static/script1.js"></script> 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>

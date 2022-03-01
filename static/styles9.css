@@ -1,0 +1,447 @@
+:root {
+  /* --main_background: rgba(11, 65, 167, 0.8); */
+  --main_background: rgba(250, 240, 230, 0.6);
+  --complementary_color: rgb(250, 50, 88);
+  --tertiary_color: rgb(165, 44, 90);
+  --white: #faf0e6;
+}
+
+@keyframes titleSlide {
+  from {
+    margin-left: 300%;
+    width: 200%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+@keyframes navSlide {
+  from {
+    margin-top: -5%;
+  }
+
+  to {
+    margin-top: 0%;
+  }
+}
+
+html {
+  font-family: "Courier New", Courier, monospace !important;
+}
+
+body {
+  background-image: url(images/rainforest.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: top;
+  height: 200vh;
+  background-attachment: fixed;
+  display: block;
+  margin: 0px;
+}
+
+.list {
+  list-style: none; /* get rid of the default bullet points */
+  padding-left: 0;
+}
+
+h1 {
+  color: var(--complementary_color);
+  font-size: 100px;
+  text-align: center;
+  margin-bottom: 0;
+  animation: titleSlide 0.75s;
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 3em;
+  color: var(--complementary_color);
+  font-size: 40px;
+  text-align: center;
+  animation: titleSlide 0.75s;
+}
+
+h4 {
+  font-size: 1.3em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+h5 {
+  font-size: 0.9em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.nav {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0 1rem;
+  animation: navSlide 0.75s;
+}
+
+.nav__list {
+  width: auto;
+  display: flex;
+  font-size: 1.6rem;
+  /* make sure the navigation list is visible from the start */
+  /* overwrites the .collapsible__content from earlier. If however the collapsible__content rule would be later in the css file then invisible */
+  /* later rules seem to have precedent */
+  max-height: 100%;
+  opacity: 1;
+}
+
+.nav__item {
+  border-bottom: none;
+  margin-right: 1em;
+}
+
+.main {
+  /* border-width: 5px;
+  border-color: magenta;
+  border-style: solid; */
+}
+
+.title_container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title_background {
+  width: 70%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--main_background);
+}
+
+.validator {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border-width: 5px;
+  border-color: rgb(42, 130, 165);
+  border-style: solid; */
+  overflow: auto;
+}
+
+.validator-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 75%;
+  height: 85%;
+  overflow: auto;
+  background-color: var(--main_background);
+  clip-path: polygon(
+    45% 0,
+    100% 0,
+    100% 30%,
+    100% 80%,
+    60% 100%,
+    30% 100%,
+    0 100%,
+    0 13%
+  );
+}
+
+.validator-content {
+  width: 100%;
+  overflow: auto;
+  margin: auto;
+}
+
+.centering {
+  width: 80%;
+  height: 75%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.DD_Sat {
+  height: 30vh;
+  display: flex;
+  justify-content: space-between;
+  /* box-shadow: 0px 5px 5px 5px var(--main_background); */
+}
+
+.DD {
+  background-color: rgb(184, 184, 184);
+  background-size: auto 90%;
+  border-radius: 30px;
+  border-style: dashed;
+  border-width: 5px;
+  border-color: rgb(73, 73, 73);
+  opacity: 1;
+  height: 90%;
+  width: 45%;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 2em;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.Sat {
+  background-color: rgb(184, 184, 184);
+  background-size: auto 90%;
+  border-radius: 30px;
+  border-style: solid;
+  border-width: 5px;
+  border-color: rgb(73, 73, 73);
+  height: 90%;
+  width: 45%;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 2em;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.form_coordinates {
+  display: flex;
+}
+
+.coordinate_input_label {
+  display: block;
+  font-size: 0.9em;
+}
+
+.coordinate_input {
+  width: 100px;
+  margin-right: 0.5em;
+}
+
+.form_drone_img {
+  height: 0px;
+  overflow: clip;
+}
+
+.coordinates {
+  display: block;
+  /* box-shadow: 0px -5px 5px 5px var(--main_background); */
+  padding-left: 2em;
+}
+
+.coordinate_input_container {
+  display: flex;
+}
+
+.inputWrapper {
+  display: block;
+}
+
+.long_lat_container {
+  display: block;
+  margin-right: 5em;
+}
+
+.longLatWrapper {
+  display: flex;
+}
+
+.loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid var(--tertiary_color); /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+.loader-small {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid var(--tertiary_color); /* Blue */
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+button {
+  font-family: inherit;
+}
+
+.btn {
+  background-color: #ecf0f1;
+  text-decoration: none;
+  border-color: rgb(73, 73, 73);
+  border-width: 1px;
+  border-style: solid;
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 1rem 2rem;
+  width: 25%;
+  border-radius: 30px;
+  cursor: pointer;
+  white-space: nowrap;
+  text-align: center;
+  margin: 1rem 1rem;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.btn:hover {
+  color: #ecf0f1;
+}
+
+.btn::after {
+  content: "";
+  background: var(--tertiary_color);
+  position: absolute;
+  z-index: -1;
+  padding: 0.85em 0.75em;
+  display: block;
+}
+
+.btn:hover::after {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transition: all 0.35s;
+}
+
+.btn::after {
+  top: 0;
+  bottom: 0;
+  left: -100%;
+  right: 100%;
+}
+
+.validate {
+  visibility: visible;
+}
+
+button:disabled {
+  background-color: rgb(53, 53, 53);
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.buttons-1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
+
+.negResult {
+  width: 25%;
+  background-color: red;
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 1rem 2rem;
+  border-radius: 30px;
+  border: 0;
+  white-space: nowrap;
+  text-align: center;
+  margin: 1rem 1rem;
+  cursor: not-allowed;
+}
+
+.posResult {
+  background-color: green;
+  width: 25%;
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 1rem 2rem;
+  border-radius: 30px;
+  border: 0;
+  cursor: pointer;
+  white-space: nowrap;
+  text-align: center;
+  cursor: not-allowed;
+}
+
+a {
+  color: var(--tertiary_color) !important;
+  text-decoration: none;
+}
+
+a:visited {
+  color: inherit;
+}
+
+.userGuide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* border-width: 5px;
+  border-color: brown;
+  border-style: solid; */
+}
+
+#instructions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--main_background);
+  height: 75%;
+  width: 75%;
+  clip-path: polygon(
+    45% 0,
+    100% 0,
+    100% 30%,
+    100% 80%,
+    60% 100%,
+    30% 100%,
+    0 100%,
+    0 13%
+  );
+}
+
+.about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#information {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--main_background);
+  height: 75%;
+  width: 75%;
+  clip-path: polygon(
+    45% 0,
+    100% 0,
+    100% 30%,
+    100% 80%,
+    60% 100%,
+    30% 100%,
+    0 100%,
+    0 13%
+  );
+}
