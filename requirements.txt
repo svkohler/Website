@@ -1,0 +1,16 @@
+ee==0.4
+fastapi==0.74.1
+geemap==0.11.5
+numpy==1.20.3
+Pillow==9.0.1
+psycopg2==2.9.3
+pydantic==1.9.0
+scikit_image==0.18.3
+scikit_learn==1.0.2
+skimage==0.0
+torch==1.10.2
+torchvision==0.11.3
+uvicorn==0.12.3
+aiofiles==0.6.0
+python-multipart==0.0.5
+jinja2==2.11.2
